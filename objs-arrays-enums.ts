@@ -13,32 +13,34 @@
 //     hobbies: ['Sports', 'Cooking'],
 //     role: [2, 'author']
 // };
+
 // const ADMIN = 0;
 // const READ_ONLY = 1;
 // const AUTHOR = 2;
-var Role;
-(function (Role) {
-    Role[Role["ADMIN"] = 0] = "ADMIN";
-    Role[Role["READ_ONLY"] = 1] = "READ_ONLY";
-    Role[Role["AUTHOR"] = 2] = "AUTHOR";
-})(Role || (Role = {}));
-;
-var person = {
+
+enum Role { ADMIN = 'ADMIN', READ_ONLY = 100, AUTHOR = 'AUTHOR' };
+
+const person = {
     name: 'Marquis',
     age: 20,
     hobbies: ['Sports', 'Cooking'],
     role: Role.ADMIN
 };
+
 // person.role.push('admin'); (length is not enforced)
 // person.role[1] = 10;
+
 // person.role = [0, 'admin', 'user']; // (lenght is enforced here)
-var favoriteActivities;
+
+let favoriteActivities: string[];
 favoriteActivities = ['Sports'];
-console.log(person.name);
-for (var _i = 0, _a = person.hobbies; _i < _a.length; _i++) {
-    var hobby = _a[_i];
-    console.log(hobby.toUpperCase());
+
+console.log(person.name)
+
+for (const hobby of person.hobbies) {
+    console.log(hobby.toUpperCase())
 }
+
 if (person.role === Role.AUTHOR) {
     console.log('is author');
 }
